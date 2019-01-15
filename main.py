@@ -3,7 +3,6 @@ from sklearn.naive_bayes import MultinomialNB
 import numpy as np
 import Data_cleaner
 import read_data
-import gensim
 import pandas
 import extract_features
 import naive_bayes

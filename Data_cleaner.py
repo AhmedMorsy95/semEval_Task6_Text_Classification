@@ -6,7 +6,7 @@ from nltk.stem.porter import PorterStemmer
 def remove_noise(tweets):
 
     # noise related to twitter
-    noise = ["url","user","@","#","-","!","?","rt","dm","retweet","rt","dm"]
+    noise = ["url","user","@","#","-",'.',"!","?","rt","dm","retweet","rt","dm"]
     for i in range(0, len(tweets)):
         for j in range(0,len(noise)):
              tweets[i] = tweets[i].replace(noise[j] , "")

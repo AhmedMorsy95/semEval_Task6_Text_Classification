@@ -11,6 +11,20 @@ def get_data(ratio):
     labels = []
     tests = []
     test_labels = []
+    #
+    # with open('labeled_data.csv') as f:
+    #     lines = f.read().split('\n')[:-1]
+    #     for i, line in enumerate(lines):
+    #         if i == 0: # header
+    #             column_names = line.split(",")
+    #             print(column_names)
+    #         else:
+    #             # only interested in non NULL data belonging to sub-task A
+    #             cur_line = line.split(",")
+    #             print(len(cur_line))
+    #             if len(cur_line) == 7 :
+    #                 tweets.append(cur_line[6])
+    #                 labels.append(cur_line[3])
 
     with open('offenseval-training-v1.tsv') as f:
         lines = f.read().split('\n')[:-1]

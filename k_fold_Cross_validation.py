@@ -85,7 +85,8 @@ def preprocess(test,train):
 def run_clf(train_features,train_labels,test_features,test_labels):
         # naive_bayes.run_naive_bayes(train_features, test_features, train_labels, test_labels)
         # logistic_regression.run(train_features, test_features, train_labels, test_labels)
-        tree_classifier.run(train_features, test_features, train_labels, test_labels)
+        #tree_classifier.run(train_features, test_features, train_labels, test_labels)
         # svm.run(train_features, test_features, train_labels, test_labels)
         # random_forest.run(train_features, test_features, train_labels, test_labels)
+        Kneighbours_Clf.run(train_features, test_features, train_labels, test_labels)
         print("\n")

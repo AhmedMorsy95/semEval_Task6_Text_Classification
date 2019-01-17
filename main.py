@@ -15,6 +15,7 @@ import random_forest
 import Kneighbours_Clf
 import k_fold_Cross_validation
 from sklearn.neural_network import MLPClassifier
+from sklearn.model_selection import GridSearchCV
 
 
 def main():
@@ -39,42 +40,52 @@ def main():
     #print(trainDF)
     # # extract features from text and test
     train_features,test_features = extract_features.get_features_TF_IDF(trainDF['text'],testDF['tests'])
+    #train_features,test_features = extract_features.word2vec(trainDF['text'],testDF['tests'])
+    # # multi layer perceptron
+    # clf = MLPClassifier()
+    # parameter_space = {
+    # 'hidden_layer_sizes': [(50,50,50), (50,100,50), (100,)],
+    # 'activation': ['tanh', 'relu', 'logistic'],
+    # 'solver': ['sgd', 'adam', 'lbfgs'],
+    # 'alpha': [float(x) for x in np.linspace(0.0001, 5, num = 100)],
+    # 'learning_rate': ['constant','adaptive']}
+    #
+    # grid = GridSearchCV(clf, parameter_space, n_jobs=-1, cv=3,verbose=1)
+    # grid.fit(train_features, trainDF['labels'])
+    # print(grid.best_params_)
 
-    # multi layer perceptron
-    # clf = MLPClassifier(solver='lbfgs', alpha=1e-5,hidden_layer_sizes=(5, 2), random_state=1)
-    # clf.fit(train_features,trainDF['labels'])
-    # p = clf.predict(test_features)
+    #clf.fit(train_features,trainDF['labels'])
+    #p = clf.predict(test_features)
 
-    # print(np.mean(p == testDF['test_labels']))
+    #print(np.mean(p == testDF['test_labels']))
 
     # run our first classifier naive naive_bayes
     #naive_bayes.run_naive_bayes(train_features, test_features,trainDF['labels'], testDF['test_labels'])
     #
     #
-    # SGD_classifier
-    #SGD_classifier.run(train_features, test_features,trainDF['labels'], testDF['test_labels'])
-    #
-    # #
     # # logistic regression
-    #logistic_regression.run(train_features, test_features,trainDF['labels'], testDF['test_labels'])
+    #logistic_regression.tune(train_features,trainDF['labels'])
+    logistic_regression.run(train_features, test_features,trainDF['labels'], testDF['test_labels'])
     #
     #
     # # tree classifier
     #tree_classifier.tune(train_features,trainDF['labels'])
     #tree_classifier.plot(train_features,trainDF['labels'],test_features,testDF['test_labels'])
-    tree_classifier.run(train_features,test_features,trainDF['labels'],testDF['test_labels'])
+    #tree_classifier.run(train_features,test_features,trainDF['labels'],testDF['test_labels'])
     #
-    # # supported vector machines linear classifier ,tolerance
-    # svm.run(train_features, test_features,trainDF['labels'], testDF['test_labels'])
+    #supported vector machines linear classifier ,tolerance
+    #svm.run(train_features, test_features,trainDF['labels'], testDF['test_labels'])
+    #svm.tune(train_features, trainDF['labels'])
+    #svm.plot(train_features, trainDF['labels'], test_features, testDF['test_labels'])
     #
     #
-    # # random forests
+    #random forests
     #random_forest.tune(train_features, trainDF['labels'])
     #random_forest.run(train_features, test_features,trainDF['labels'], testDF['test_labels'])
     #
     #
-    # # k nearest neighbour clf
-    # Kneighbours_Clf.run(train_features, test_features,trainDF['labels'], testDF['test_labels'])
+    #k nearest neighbour clf
+    #Kneighbours_Clf.run(train_features, test_features,trainDF['labels'], testDF['test_labels'])
 
 
 if __name__== "__main__":
